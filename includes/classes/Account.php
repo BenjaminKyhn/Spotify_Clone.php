@@ -52,6 +52,19 @@ class Account {
     }
 
     private function validatePassword($password, $password2){
+        if ($password != $password2){
+            array_push($this -> errorArray, "Your passwords don't match");
+            return;
+        }
 
+        if (preg_match('/[^A-Za-z0-9]/', $password)){
+            array_push($this -> errorArray, "Your password can only contain numbers and letters");
+            return;
+        }
+
+        if (strlen($password) > 30 || strlen($password) < 5){
+            array_push($this -> errorArray, "Your password must be between 5 and 30 characters");
+            return;
+        }
     }
 }
