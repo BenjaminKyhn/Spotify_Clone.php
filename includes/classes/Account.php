@@ -20,19 +20,35 @@ class Account {
             return;
         }
 
-        //TODO: check if username exists
+        //TODO: check if username exists already
     }
 
     private function validateFirstName($firstName){
-
+        if (strlen($firstName) > 25 || strlen($firstName) < 2){
+            array_push($this -> errorArray, "Your first name must be between 2 and 25 characters");
+            return;
+        }
     }
 
     private function validateLastName($lastName){
-
+        if (strlen($lastName) > 25 || strlen($lastName) < 2){
+            array_push($this -> errorArray, "Your last name must be between 2 and 25 characters");
+            return;
+        }
     }
 
     private function validateEmail($email, $email2){
+        if ($email != $email2){
+            array_push($this -> errorArray, "Your emails don't match");
+            return;
+        }
 
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            array_push($this -> errorArray, "Email is invalid");
+            return;
+        }
+
+        //TODO: check if email exists already
     }
 
     private function validatePassword($password, $password2){
