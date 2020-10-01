@@ -87,3 +87,12 @@ html, body{
 #inputContainer button:hover {
     cursor: pointer;
 }
+
+.hasAccountText{
+    text-align: center;
+}
+
+.hasAccountText span {
+    font-size: 12px;
+    font-weight: bold;
+}

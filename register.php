@@ -38,6 +38,9 @@ function getInputValue($name)
                     <input id="loginPassword" name="loginPassword" type="password" placeholder="your password" required>
                 </p>
                 <button type="submit" name="loginButton">Log in</button>
+                <div class="hasAccountText">
+                        <span id="hideLogin">Don't have an account yet? Sign up here.</span>
+                </div>
             </form>
 
             <form id="registerForm" action="register.php" method="POST">
@@ -88,6 +91,9 @@ function getInputValue($name)
                            value="<?php getInputValue('password2'); ?>" required>
                 </p>
                 <button type="submit" name="registerButton">Sign up</button>
+                <div class="hasAccountText">
+                    <span id="hideRegister">Already have an account? Log in here.</span>
+                </div>
             </form>
         </div>
     </div>
