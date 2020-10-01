@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start(); //Enables the use of sessions
 
 $timezone = date_default_timezone_set("Europe/Copenhagen");
 
