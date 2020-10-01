@@ -20,8 +20,8 @@ class Account
         $this->validatePassword($password, $password2);
 
         if (empty($this->errorArray)) {
-            //TODO: Insert into DB
-            return $this->insertUserDetails($username, $firstName, $lastName, $email, $password);
+            //Insert into DB
+            return $this -> insertUserDetails($username, $firstName, $lastName, $email, $password);
         } else {
             return false;
         }
@@ -49,12 +49,18 @@ class Account
 
     private function validateUsername($username)
     {
+        // Check if username is the desired length
         if (strlen($username) > 25 || strlen($username) < 5) {
             array_push($this->errorArray, Constants::$usernameCharacters);
             return;
         }
 
-        //TODO: check if username exists already
+        // Check if username already exists in DB
+        $checkUsernameQuery = mysqli_query($this -> conn, "SELECT username FROM users WHERE username='$username'");
+        if (mysqli_num_rows($checkUsernameQuery) != 0){
+            array_push($this -> errorArray, Constants::$usernameTaken);
+            return;
+        }
     }
 
     private function validateFirstName($firstName)
@@ -85,7 +91,12 @@ class Account
             return;
         }
 
-        //TODO: check if email exists already
+        //Check if email already exists in DB
+        $checkEmailQuery = mysqli_query($this -> conn, "SELECT email FROM users WHERE email='$email'");
+        if (mysqli_num_rows($checkEmailQuery) != 0){
+            array_push($this -> errorArray, Constants::$emailTaken);
+            return;
+        }
     }
 
     private function validatePassword($password, $password2)
