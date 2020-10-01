@@ -68,3 +68,22 @@ html, body{
     color: #a0a0a0;
     margin-top: 15px;
 }
+
+
+#inputContainer button {
+    display: block;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 250px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 41px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+#inputContainer button:hover {
+    cursor: pointer;
+}
