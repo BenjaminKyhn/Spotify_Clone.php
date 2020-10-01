@@ -3,7 +3,7 @@ include("includes/config.php");
 include("includes/classes/Account.php");
 include("includes/classes/Constants.php");
 
-$account = new Account();
+$account = new Account($conn);
 
 include("includes/handlers/register-handler.php");
 include("includes/handlers/login-handler.php");
