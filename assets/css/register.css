@@ -95,6 +95,7 @@ html, body{
 .hasAccountText span {
     font-size: 12px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #registerForm, #loginForm{
