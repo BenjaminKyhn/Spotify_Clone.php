@@ -1,7 +1,7 @@
 <?php
 include("includes/config.php"); //to use sessions
 
-session_destroy(); //force the user to log out
+// session_destroy(); //force the user to log out
 
 if (isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = $_SESSION['userLoggedIn'];
@@ -21,9 +21,37 @@ if (isset($_SESSION['userLoggedIn'])) {
         <div id="nowPlayingLeft">
 
         </div>
-        <div id="nowPlayingCenter">
 
+        <div id="nowPlayingCenter">
+            <div class="content playerControls">
+                <div class="buttons">
+                    <button class="controlButton shuffle" title="Shuffle Button">
+                        <img src="assets/images/icons/shuffle.png" alt="Shuffle">
+                    </button>
+
+                    <button class="controlButton previous" title="Previous Button">
+                        <img src="assets/images/icons/previous.png" alt="Previous">
+                    </button>
+
+                    <button class="controlButton play" title="Play Button">
+                        <img src="assets/images/icons/play.png" alt="Play">
+                    </button>
+
+                    <button class="controlButton pause" title="Pause Button" style="display: none;">
+                        <img src="assets/images/icons/pause.png" alt="Pause">
+                    </button>
+
+                    <button class="controlButton next" title="Next Button">
+                        <img src="assets/images/icons/next.png" alt="Next">
+                    </button>
+
+                    <button class="controlButton repeat" title="Repeat Button">
+                        <img src="assets/images/icons/repeat.png" alt="Repeat">
+                    </button>
+                </div>
+            </div>
         </div>
+
         <div id="nowPlayingRight">
 
         </div>
