@@ -60,3 +60,21 @@ html, body {
 .controlButton:hover{
     cursor: pointer;
 }
+
+.progressTime{
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 11px;
+    min-width: 40px;
+}
+
+.progressBar{
+    height: 12px;
+    width: 100%;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.playbackBar{
+    display: flex;
+}
