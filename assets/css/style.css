@@ -4,6 +4,11 @@ html, body {
     height: 100%;
 }
 
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
 #nowPlayingBarContainer{
     background-color: #282828;
     width: 100%;
@@ -104,4 +109,19 @@ html, body {
     max-width: 57px;
     float: left;
     background-size: cover;
+}
+
+#nowPlayingLeft .trackInfo{
+    display: table;
+}
+
+#nowPlayingLeft .trackInfo .trackName{
+    display: inline-block;
+    margin: 6px 0;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span{
+    font-size: 12px;
+    color: #a0a0a0;
 }

@@ -23,6 +23,17 @@ if (isset($_SESSION['userLoggedIn'])) {
                 <span class="albumLink">
                     <img class="albumArtwork" src="https://image.freepik.com/free-vector/pack-colorful-square-emoticons_23-2147589525.jpg">
                 </span>
+
+                <div class="trackInfo">
+                    <span class="trackName">
+                        <span>Happy Birthday</span>
+                    </span>
+
+                    <span class="artistName">
+                        <span>Benny</span>
+                    </span>
+                </div>
+
             </div>
         </div>
 
