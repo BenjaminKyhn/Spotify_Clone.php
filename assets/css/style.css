@@ -34,6 +34,7 @@ html, body {
 
 #nowPlayingBar .content{
     width: 100%;
+    height: 57px;
 }
 
 .playerControls .buttons{
@@ -95,4 +96,12 @@ html, body {
 
 .playbackBar .progressBar{
     margin-top: 3px;
+}
+
+.albumArtwork{
+    height: 100%;
+    margin-right: 15px;
+    max-width: 57px;
+    float: left;
+    background-size: cover;
 }

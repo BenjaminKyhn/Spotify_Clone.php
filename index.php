@@ -19,7 +19,11 @@ if (isset($_SESSION['userLoggedIn'])) {
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
         <div id="nowPlayingLeft">
-
+            <div class="content">
+                <span class="albumLink">
+                    <img class="albumArtwork" src="https://image.freepik.com/free-vector/pack-colorful-square-emoticons_23-2147589525.jpg">
+                </span>
+            </div>
         </div>
 
         <div id="nowPlayingCenter">
