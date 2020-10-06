@@ -9,6 +9,12 @@ html, body {
     color: white;
 }
 
+body {
+    font-size: 14px;
+    background-color: #181818;
+    min-width: 720px;
+}
+
 #nowPlayingBarContainer {
     background-color: #282828;
     width: 100%;
@@ -195,4 +201,14 @@ html, body {
     right: 0;
     top: 6px;
     width: 25px;
+}
+
+#mainViewContainer {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    padding-bottom: 90px;
+}
+
+#mainContent {
+    padding: 0 20px;
 }
