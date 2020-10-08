@@ -1,21 +1,17 @@
 <?php include("includes/header.php");
 
-if (isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $albumId = $_GET['id'];
-}
-else {
+} else {
     header("Location: index.php");
 }
 
 $albumQuery = mysqli_query($conn, "SELECT * FROM albums WHERE id='$albumId'");
 $album = mysqli_fetch_array($albumQuery);
 
-$artistId = $album['artist'];
+$artist = new Artist($conn, $album['artist']);
 
-$artistQuery = mysqli_query($conn, "SELECT * FROM artists WHERE id='$artistId'");
-$artist = mysqli_fetch_array($artistQuery);
-
-echo $artist['name'];
+echo $artist->getName();
 
 ?>
 
