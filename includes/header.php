@@ -2,6 +2,7 @@
 include("includes/config.php"); //to use sessions
 include("includes/classes/Artist.php");
 include("includes/classes/Album.php");
+include("includes/classes/Song.php");
 
 // session_destroy(); //force the user to log out
 
