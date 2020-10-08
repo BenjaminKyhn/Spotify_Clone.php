@@ -10,7 +10,12 @@ else {
 $albumQuery = mysqli_query($conn, "SELECT * FROM albums WHERE id='$albumId'");
 $album = mysqli_fetch_array($albumQuery);
 
-echo $album['title'];
+$artistId = $album['artist'];
+
+$artistQuery = mysqli_query($conn, "SELECT * FROM artists WHERE id='$artistId'");
+$artist = mysqli_fetch_array($artistQuery);
+
+echo $artist['name'];
 
 ?>
 
