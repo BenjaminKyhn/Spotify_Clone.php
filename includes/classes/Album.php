@@ -1,0 +1,39 @@
+<?php
+
+class Album {
+    private $conn;
+    private $id;
+    private $title;
+    private $artistId;
+    private $genre;
+    private $artworkPath;
+
+    public function __construct($conn, $id) {
+        $this->conn = $conn;
+        $this->id = $id;
+
+        $query = mysqli_query($this->conn, "SELECT * FROM albums WHERE id='$this->id'");
+        $album = mysqli_fetch_array($query);
+
+        $this -> title = $album['title'];
+        $this -> artistId = $album['artist'];
+        $this -> genre = $album['genre'];
+        $this -> artworkPath = $album['artworkPath'];
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getArtist() {
+        return new Artist($this->conn, $this->artistId);
+    }
+
+    public function getGenre(){
+        return $this->genre;
+    }
+
+    public function getArtworkPath() {
+        return $this->artworkPath;
+    }
+}
