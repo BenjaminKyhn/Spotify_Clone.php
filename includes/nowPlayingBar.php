@@ -22,14 +22,16 @@ $jsonArray = json_encode($resultArray);
     function setTrack(trackId, newPlaylist, play) {
         $.post("includes/handlers/ajax/getSongjson.php", {songId: trackId}, function(data){
             var track = JSON.parse(data);
-
             $(".trackName span").text(track.title);
-
 
             $.post("includes/handlers/ajax/getArtistjson.php", {artistId: track.artist}, function(data){
                 var artist = JSON.parse(data);
-
                 $(".artistName span").text(artist.name);
+            });
+
+            $.post("includes/handlers/ajax/getAlbumjson.php", {albumId: track.album}, function(data){
+                var album = JSON.parse(data);
+                $(".albumLink img").attr("src", album.artworkPath);
             });
 
             audioElement.setTrack(track.path);
@@ -59,7 +61,7 @@ $jsonArray = json_encode($resultArray);
         <div class="content">
                 <span class="albumLink">
                     <img class="albumArtwork"
-                         src="https://image.freepik.com/free-vector/pack-colorful-square-emoticons_23-2147589525.jpg">
+                         src="">
                 </span>
 
             <div class="trackInfo">
