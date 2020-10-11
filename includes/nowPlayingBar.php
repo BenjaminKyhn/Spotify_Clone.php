@@ -34,15 +34,20 @@ $jsonArray = json_encode($resultArray);
                 $(".albumLink img").attr("src", album.artworkPath);
             });
 
-            audioElement.setTrack(track.path);
+            audioElement.setTrack(track);
         });
 
         if (play){
-            audioElement.play();
+            playSong();
         }
     }
 
     function playSong(){
+
+        if (audioElement.audio.currentTime == 0){
+            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id});
+        }
+
         $(".controlButton.play").hide();
         $(".controlButton.pause").show();
         audioElement.play();
