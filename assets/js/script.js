@@ -1,3 +1,6 @@
+var currentPlaylist = [];
+var audioElement;
+
 function Audio(){
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
