@@ -33,6 +33,28 @@ $jsonArray = json_encode($resultArray);
             timeFromOffset(e, this);
         });
 
+        $(".volumeBar .progressBar").mousedown(function () {
+            mousePressed = true;
+        });
+
+        $(".volumeBar .progressBar").mousemove(function (e) {
+            if (mousePressed){
+                var percentage = e.offsetX / $(this).width();
+
+                if (percentage >= 0 && percentage <= 1){
+                    audioElement.audio.volume = percentage;
+                }
+            }
+        });
+
+        $(".volumeBar .progressBar").mouseup(function(e) {
+            var percentage = e.offsetX / $(this).width();
+
+            if (percentage >= 0 && percentage <= 1){
+                audioElement.audio.volume = percentage;
+            }
+        });
+
         $(document).mouseup(function () {
             mousePressed = false;
         })
