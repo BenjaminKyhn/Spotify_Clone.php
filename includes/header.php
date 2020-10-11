@@ -17,6 +17,8 @@ if (isset($_SESSION['userLoggedIn'])) {
 <head>
     <title>Welcome to Slotify</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Above script.js because it uses jquery -->
     <script src="assets/js/script.js"></script>
 </head>
 <body>
