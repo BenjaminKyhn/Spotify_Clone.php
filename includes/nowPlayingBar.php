@@ -111,7 +111,7 @@ $jsonArray = json_encode($resultArray);
             </div>
 
             <div class="playbackBar">
-                <span class="progressTime current">0.00</span>
+                <span class="progressTime current">0:00</span>
 
                 <div class="progressBar">
                     <div class="progressBarBg">
