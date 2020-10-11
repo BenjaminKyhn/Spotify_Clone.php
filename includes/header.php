@@ -20,13 +20,6 @@ if (isset($_SESSION['userLoggedIn'])) {
     <script src="assets/js/script.js"></script>
 </head>
 <body>
-
-<script>
-    var audioElement = new Audio();
-    audioElement.setTrack("assets/music/bensound-acousticbreeze.mp3");
-    audioElement.audio.play();
-</script>
-
 <div id="mainContainer">
 
     <div id="topContainer">
