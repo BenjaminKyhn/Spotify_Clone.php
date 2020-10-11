@@ -8,4 +8,8 @@ function Audio(){
     this.setTrack = function(src){
         this.audio.src = src;
     }
+
+    this.play = function () {
+        this.audio.play();
+    }
 }

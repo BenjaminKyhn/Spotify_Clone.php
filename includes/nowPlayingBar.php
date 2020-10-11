@@ -16,10 +16,15 @@ $jsonArray = json_encode($resultArray);
     $(document).ready(function () { // Waits for the page to be ready (everything loaded)
         currentPlaylist = <?php echo $jsonArray; ?>;
         audioElement = new Audio();
+        setTrack(currentPlaylist[0], currentPlaylist, false);
     });
 
     function setTrack(trackId, newPlaylist, play) {
-        setTrack(currentPlaylist[0], currentPlaylist, false);
+        audioElement.setTrack("assets/music/bensound-clearday.mp3");
+
+        if (play){
+            audioElement.play();
+        }
     }
 
 </script>
