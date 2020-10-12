@@ -72,8 +72,22 @@ $jsonArray = json_encode($resultArray);
         audioElement.setTime(seconds);
     }
 
+    function nextSong(){
+        if (currentIndex === currentPlaylist.length - 1){
+            currentIndex = 0;
+        }
+        else {
+            currentIndex++;
+        }
+
+        var trackToPlay = currentPlaylist[currentIndex];
+        setTrack(trackToPlay, currentPlaylist, true);
+    }
+
     function setTrack(trackId, newPlaylist, play) {
         $.post("includes/handlers/ajax/getSongjson.php", {songId: trackId}, function(data){
+            currentIndex = currentPlaylist.indexOf(trackId);
+
             var track = JSON.parse(data);
             $(".trackName span").text(track.title);
 
@@ -88,16 +102,17 @@ $jsonArray = json_encode($resultArray);
             });
 
             audioElement.setTrack(track);
+            playSong();
         });
 
-        if (play){
-            playSong();
+        if (play === true){
+            audioElement.play();
         }
     }
 
     function playSong(){
 
-        if (audioElement.audio.currentTime == 0){
+        if (audioElement.audio.currentTime === 0){
             $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id});
         }
 
