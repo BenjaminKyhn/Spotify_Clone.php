@@ -56,9 +56,12 @@ class Song {
         return $this->path;
     }
 
-    public function getMysqliData()
-    {
+    public function getMysqliData(){
         return $this->mysqliData;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 
 
