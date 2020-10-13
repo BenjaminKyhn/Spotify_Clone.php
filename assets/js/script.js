@@ -24,7 +24,6 @@ function openPage(url){
 }
 
 function createPlaylist(){
-    console.log(userLoggedIn);
     var name = prompt("Please enter the name of your playlist");
 
     if (name != null){

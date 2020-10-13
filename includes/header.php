@@ -8,7 +8,7 @@ include("includes/classes/Song.php");
 
 if (isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = $_SESSION['userLoggedIn'];
-    echo "<scipt>userLoggedIn = '$userLoggedIn';</scipt>";
+    echo "<script>userLoggedIn = '$userLoggedIn';</script>";
 } else {
     header("Location: register.php");
 }
