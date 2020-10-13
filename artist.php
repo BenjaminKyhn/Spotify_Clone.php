@@ -20,7 +20,7 @@ $artist = new Artist($conn, $artistId);
 
             <div class="headerButtons">
 
-                <button class="button green">PLAY</button>
+                <button class="button green" onclick="playFirstSong()">PLAY</button>
 
             </div>
 
