@@ -9,6 +9,18 @@ var shuffle = false;
 var userLoggedIn;
 var timer;
 
+$(window).scroll(function(){
+    hideOptionsMenu();
+});
+
+$(document).click(function(click){
+    var target = $(click.target);
+
+    if(!target.hasClass("item") && !target.hasClass("optionsButton")){
+        hideOptionsMenu();
+    }
+});
+
 function openPage(url){
     if (timer != null){
         clearTimeout(timer);
@@ -52,6 +64,13 @@ function deletePlaylist(playlistId){
 
             openPage("yourMusic.php");
         });
+    }
+}
+
+function hideOptionsMenu(){
+    var menu = $(".optionsMenu");
+    if (menu.css("display") !== "none"){
+        menu.css("display", "none");
     }
 }
 
