@@ -5,7 +5,7 @@ include("includes/includedFiles.php");
 
 <h1 class="pageHeadingBig">You might also like</h1>
 
-<div class="griViewContainer">
+<div class="gridViewContainer">
 
     <?php
     $albumQuery = mysqli_query($conn, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
