@@ -26,4 +26,8 @@ class Artist {
 
         return $songArray;
     }
+
+    public function getId(){
+        return $this->id;
+    }
 }
