@@ -6,6 +6,7 @@ var mousePressed = false;
 var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
+var userLoggedIn;
 
 function formatTime(seconds){
     var time = Math.round(seconds);
