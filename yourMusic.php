@@ -2,12 +2,12 @@
 include("includes/includedFiles.php");
 ?>
 
-<div class="playlistContainer">
+<div class="playlistsContainer">
 
     <div class="gridViewContainer">
         <h2>PLAYLISTS</h2>
 
-        <div class="buttonItems">
+        <div class="buttonItems" onclick="createPlaylist('dsdg')">
             <button class="button green">NEW PLAYLIST</button>
         </div>
 
