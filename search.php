@@ -21,8 +21,6 @@ else {
     $(".searchInput").focus();
 
     $(function() {
-        var timer;
-
         $(".searchInput").keyup(function (){
             clearTimeout(timer); //Resets the timer every time you type something
 
