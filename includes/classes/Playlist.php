@@ -47,4 +47,11 @@ class Playlist {
 
         return $songArray;
     }
+
+    public static function getPlaylistDropdown($conn, $username){
+        $dropdown = '<select class="item playlist">
+                        <option value="">Add to playlist</option>
+                    </select>';
+        return $dropdown;
+    }
 }
