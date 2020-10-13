@@ -35,6 +35,8 @@ else {
 
 </script>
 
+<?php if ($term == "") exit(); ?>
+
 <div class="tracklistContainer borderBottom">
 
     <h2>SONGS</h2>
@@ -117,6 +119,34 @@ else {
                     </span>
                 </div>
             </div>";
+    }
+    ?>
+
+</div>
+
+<div class="gridViewContainer">
+
+    <h2>ALBUMS</h2>
+
+    <?php
+    $albumQuery = mysqli_query($conn, "SELECT * FROM albums WHERE title LIKE '$term%' LIMIT 10");
+
+    if(mysqli_num_rows($albumQuery) == 0){
+        echo "<span class='noResults'>No albums found matching " . $term . "</span>";
+    }
+
+    while ($row = mysqli_fetch_array($albumQuery)) {
+        echo "<div class='gridViewItem'>
+
+                    <span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+                    <img src='" . $row['artworkPath'] . "'>
+                    
+                    <div class='gridViewInfo'>"
+            . $row['title'] .
+            "</div>
+                    </span>
+
+                </div>";
     }
     ?>
 
