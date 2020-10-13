@@ -13,7 +13,9 @@ $owner = new User($conn, $playlist->getOwner());
 
 <div class="entityInfo">
     <div class="leftSection">
-        <img src="assets/images/icons/playlist.png">
+        <div class="playlistImage">
+            <img src="assets/images/icons/playlist.png">
+        </div>
     </div>
 
     <div class="rightSection">
@@ -28,22 +30,22 @@ $owner = new User($conn, $playlist->getOwner());
     <ul class="tracklist">
 
         <?php
-        $songIdArray = array();
+        $songIdArray = $playlist->getSongIds();
 
         $i = 1;
         foreach ($songIdArray as $songId){
-            $albumSong = new Song($conn, $songId);
-            $albumArtist = $albumSong->getArtist();
+            $playlistSong = new Song($conn, $songId);
+            $songArtist = $playlistSong->getArtist();
 
             echo "<li class='tracklistRow'>
                         <div class='trackCount'>
-                            <img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() ."\", tempPlaylist, true)'>
+                            <img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $playlistSong->getId() ."\", tempPlaylist, true)'>
                             <span class='trackNumber'>$i</span>
                         </div>
                         
                         <div class='trackInfo'>
-                            <span class='trackName'>" . $albumSong->getTitle() . "</span>
-                            <span class='artistName'>". $albumArtist->getName() . "</span>
+                            <span class='trackName'>" . $playlistSong->getTitle() . "</span>
+                            <span class='artistName'>". $songArtist->getName() . "</span>
                         </div>
                         
                         <div class='trackOptions'>
@@ -51,7 +53,7 @@ $owner = new User($conn, $playlist->getOwner());
                         </div>
                         
                         <div class='trackDuration'>
-                            <span class='duration'>". $albumSong->getDuration() . "</span>
+                            <span class='duration'>". $playlistSong->getDuration() . "</span>
                         </div>
                     </li>";
 
