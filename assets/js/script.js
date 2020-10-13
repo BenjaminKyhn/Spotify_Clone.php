@@ -23,11 +23,18 @@ function openPage(url){
     history.pushState(null, null, url); //changes the url in the browser's address bar
 }
 
-function createPlaylist(username){
-    var alert = prompt("Please enter the name of your playlist");
+function createPlaylist(){
+    console.log(userLoggedIn);
+    var name = prompt("Please enter the name of your playlist");
 
-    if (alert != null){
-        $.post("includes/handlers/ajax/createPlaylist.php", {name: alert, username: username}).done(function() {
+    if (name != null){
+        $.post("includes/handlers/ajax/createPlaylist.php", {name: name, username: userLoggedIn}).done(function(error) {
+
+            if (error !== ""){
+                alert(error);
+                return;
+            }
+
             openPage("yourMusic.php");
         })
     }
