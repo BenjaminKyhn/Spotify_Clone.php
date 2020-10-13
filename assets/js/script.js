@@ -21,6 +21,14 @@ $(document).click(function(click){
     }
 });
 
+$(document).on("change", "select.playlist", function(){
+   var playlistId = $(this).val();
+   var songId = $(this).prev(".songId").val();
+
+    console.log("playlistId: " + playlistId);
+    console.log("songId: " + songId);
+});
+
 function openPage(url){
     if (timer != null){
         clearTimeout(timer);
@@ -75,15 +83,17 @@ function hideOptionsMenu(){
 }
 
 function showOptionsMenu(button){
+    var songId = $(button).prevAll(".songId").val();
     var menu = $(".optionsMenu");
     var menuWidth = menu.width();
+    menu.find(".songId").val(songId);
+
     var scrollTop = $(window).scrollTop(); //Distance from the top of the window to the top of the document
     var elementOffset = $(button).offset().top; //Distance from the top of the document to the top of the bottom
     var top = elementOffset - scrollTop;
     var left = $(button).position().left; //Distance from the left side of the document to the button
 
     menu.css({"top": top + "px", "left": left - menuWidth + "px", "display": "inline"});
-
 }
 
 function formatTime(seconds){
