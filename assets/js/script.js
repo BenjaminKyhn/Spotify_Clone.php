@@ -12,7 +12,7 @@ function openPage(url){
     if (url.indexOf("?") === -1){
         url += "?";
     }
-    var encodedUrl = encodeURI(url + "userLoggedIn=" + userLoggedIn);
+    var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
     $("#mainContent").load(encodedUrl);
     $("body").scrollTop(0); //automatically scroll to the top of the page
     history.pushState(null, null, url); //changes the url in the browser's address bar

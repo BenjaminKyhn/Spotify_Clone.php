@@ -12,7 +12,7 @@ else {
 <div class="searchContainer">
 
     <h4>Search for an artist, album or song</h4>
-    <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Start typing..." onfocus="this.value = this.value">
+    <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Start typing..." onfocus="this.value = this.value"> <!-- cursor still hops to the start of the input field even though we used this "hack" -->
 
 </div>
 
@@ -28,7 +28,7 @@ else {
 
             timer = setTimeout(function(){
                 var val = $(".searchInput").val();
-                openPage("search.php?term=" + val);  //TODO: userLoggedIn = undefined is appended to term (it should not be)
+                openPage("search.php?term=" + val);
             }, 2000);
         });
     });
