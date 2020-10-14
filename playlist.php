@@ -49,7 +49,8 @@ $owner = new User($conn, $playlist->getOwner());
                         </div>
                         
                         <div class='trackOptions'>
-                            <img class='optionsButton' src='assets/images/icons/more.png'>
+                            <input type='hidden' class='songId' value='". $playlistSong->getId() ."'>
+                            <img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
                         </div>
                         
                         <div class='trackDuration'>
@@ -68,3 +69,8 @@ $owner = new User($conn, $playlist->getOwner());
 
     </ul>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+    <?php echo Playlist::getPlaylistDropdown($conn, $userLoggedIn->getUsername()); ?>
+</nav>
