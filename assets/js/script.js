@@ -72,9 +72,17 @@ function removeFromPlaylist(button, playlistId){
 }
 
 function updateEmail(emailClass){
-    var oldPassword = $("." + oldPassword).val();
-    var newPassword1 = $("." + newPassword1).val();
-    var newPassword2 = $("." + newPassword2).val();
+    var emailValue = $("." + emailClass).val();
+
+    $.post("includes/handlers/ajax/updateEmail.php", {email: emailValue, username: userLoggedIn}).done(function(response){
+        $("." + emailClass).nextAll(".message").text(response);
+    });
+}
+
+function updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2){
+    var oldPassword = $("." + oldPasswordClass).val();
+    var newPassword1 = $("." + newPasswordClass1).val();
+    var newPassword2 = $("." + newPasswordClass2).val();
 
     $.post("includes/handlers/ajax/updatePassword.php",
         {oldPassword: oldPassword,
@@ -82,16 +90,8 @@ function updateEmail(emailClass){
             newPassword2: newPassword2,
             username: userLoggedIn})
         .done(function(response){
-        $("." + emailClass).nextAll(".message").text(response);
-    });
-}
-
-function updateEmail(oldPasswordClass, newPasswordClass1, newPasswordClass2){
-    var emailValue = $("." + emailClass).val();
-
-    $.post("includes/handlers/ajax/updateEmail.php", {email: emailValue, username: userLoggedIn}).done(function(response){
-        $("." + oldPasswordClass).nextAll(".message").text(response);
-    });
+            $("." + oldPasswordClass).nextAll(".message").text(response);
+        });
 }
 
 function createPlaylist() {
